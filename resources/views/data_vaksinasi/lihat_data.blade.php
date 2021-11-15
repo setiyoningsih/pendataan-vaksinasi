@@ -13,7 +13,7 @@
     	@endsection
 
     	<div class="float-left" style="margin-bottom: 10px;">
-    		<input class="input-file" type="file" id="file" accept="excel/*" name="files[]" multiple="">
+    		<input class="input-file" type="file" id="file" accept="excel/*" name="excel">
     	</div>
 
     	<div class="row" style= "float: right; margin-bottom: 10px;">
@@ -36,16 +36,28 @@
     				<th scope="col">Nama</th>
     				<th scope="col">NIK</th>
                     <th scope="col">Tanggal Lahir</th>
-    				<th scope="col">RT/RW</th>
+    				<th scope="col">RT</th>
+                    <th scope="col">RW</th>
+                    <th scope="col">Action</th>
     			</tr>
     		</thead>
     		<tbody>
+                foreach($vaksinasi as $value)
     			<tr style="text-align: center;">
-    				<th scope="row">1</th>
-    				<td>Mark</td>
-    				<td>Otto</td>
-    				<td>@mdo</td>
-    				<td>@mdo</td>
+    				<th scope="row">{{ loop->iteration }}</th>
+    				<td>{{ $value->nama }}</td>
+    				<td>{{ $value->nik }}</td>
+    				<td>{{ $value->tanggal_lahir }}</td>
+    				<td>{{ $value->rt }}</td>
+                    <td>{{ $value->rw }}</td>
+                    <td>
+                        <a href="{{ url('/admin/akun/edit-akun/' . $value->id) }}">
+                            <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
+                        </a>
+                        <a href="{{ url('/admin/akun/hapus-akun/' . $value->id) }}" onclick="return confirm('Yakin ingin menghapus Akun?')">
+                            <i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i>
+                        </a>
+                    </td>
     			</tr>
     		</tbody>
     	</table>

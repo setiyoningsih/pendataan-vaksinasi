@@ -15,7 +15,7 @@
     </script>
     
     <!-- Le Meta Data -->
-    <meta content="Bootadmin" property="og:site_name">
+    <!-- <meta content="Bootadmin" property="og:site_name">
     <meta content="Bootadmin" property="og:title">
     <meta content="website" property="og:type">
     <meta content="Bootadmin is an open source bootstrap admin panel." property="og:description">
@@ -26,10 +26,10 @@
     <meta name="twitter:site" content="@iamshipon1988">
     <meta name="twitter:creator" content="@iamshipon1988">
     <meta name="twitter:title" content="Bootadmin">
-    <meta name="twitter:description" content="An opensource bootstrap admin panel. ">
+    <meta name="twitter:description" content="An opensource bootstrap admin panel. "> -->
 
     <!-- Le App Banner Data -->
-    <meta name="apple-itunes-app" content="app-id=1245521413">
+    <!-- <meta name="apple-itunes-app" content="app-id=1245521413"> -->
     <!--<meta name="apple-itunes-app" content="app-id=1245521413, affiliate-data=myAffiliateData, app-argument=myURL">-->
 
     <!-- Le Mobile Specific Metas
@@ -54,7 +54,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Le Favicons
     ================================================== -->
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset ('/images/favicon/apple-touch-icon.png') }}">
+    <!-- <link rel="apple-touch-icon" sizes="76x76" href="{{ asset ('/images/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/images/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/images/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset ('/images/favicon/site.webmanifest') }}">
@@ -62,18 +62,15 @@
     <link rel="shortcut icon" href="{{ asset('/images/favicon/favicon.ico') }}">
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Le Buy Me a Coffee
-    ================================================== -->
-    <script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="shipon" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting. You can now buy me a coffee!" data-color="#FF5F5F" data-position="" data-x_margin="18" data-y_margin="18"></script>
+    <meta name="theme-color" content="#ffffff"> -->
 </head>
 
 <body id="landing" class="sidebar-open">
-<div class="loading">
+<!-- <div class="loading">
     <div class="loading-center">
         <img src="/images/loading/map.gif" alt="Loading" />
     </div>
-</div>
+</div> -->
 <div class="page-container animsition">
     <div id="dashboardPage">
         <!-- Main Menu -->
@@ -103,9 +100,9 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="/account/profile" class="animsition-link dropdown-item wave-effect"><i class="feather icon-user"></i> Profil</a></li>
-                                    <li><a href="/account/settings" class="animsition-link dropdown-item wave-effect"><i class="feather icon-settings"></i> Pengaturan</a></li>
-                                    <li><a href="/login" class="animsition-link dropdown-item wave-effect"><i class="feather icon-log-in"></i> Logout</a></li>
+                                    <li><a href="/admin/akun/profil" class="animsition-link dropdown-item wave-effect"><i class="feather icon-user"></i> Profil</a></li>
+                                    <li><a href="/admin/akun/edit-akun" class="animsition-link dropdown-item wave-effect"><i class="feather icon-settings"></i> Pengaturan</a></li>
+                                    <li><a href="/logout" class="animsition-link dropdown-item wave-effect"><i class="feather icon-log-in"></i> Logout</a></li>
                                 </ul>
                             </li>
                             <li class="mobile-menu-toggle">
@@ -172,7 +169,7 @@
             </div>
 
             <!-- Footer -->
-            <footer>
+            <footer style="position:fixed; bottom: 0; margin-left: 30%;">
                 <p>&copy; Desa Dadirejo. All Rights Reserved. 
                     <br />Designed and Developed by 
                     Setiyoningsih

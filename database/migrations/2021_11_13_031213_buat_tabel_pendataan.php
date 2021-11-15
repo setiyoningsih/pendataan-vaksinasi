@@ -17,10 +17,13 @@ class BuatTabelPendataan extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nik');
-            $table->string('tanggal_lahir');
+            $table->date('tanggal_lahir');
             $table->string('rt');
             $table->string('rw');
             $table->string('sertifikat');
+            $table->string('excel');
+            $table->boolean('is_admin');
+            $table->boolean('is_valid');
             $table->timestamps();
         });
     }

@@ -27,9 +27,13 @@ Route::get('/admin/data-vaksinasi', [DashboardController::class, 'dataVaksinasi'
 //akun
 Route::get('/admin/akun', [AkunController::class, 'index']);
 
-Route::get('/admin/akun/tambah-akun', [AkunController::class, 'tampilTambahAkun']);
+Route::get('/admin/akun/tambah', [AkunController::class, 'tampilTambahAkun']);
+Route::post('/admin/akun/tambah', [AkunController::class, 'tambahAkun']);
 
-Route::get('/admin/akun/edit-akun', [AkunController::class, 'tampilEditAkun']);
+Route::get('/admin/akun/edit/{id}', [AkunController::class, 'tampilEditAkun']);
+Route::post('/admin/akun/edit/{id}', [AkunController::class, 'editAkun']);
+
+Route::get('/admin/akun/hapus/{id}', [AkunController::class, 'hapusAkun']);
 
 //Home
 Route::get('/', [HomeController::class, 'index']);

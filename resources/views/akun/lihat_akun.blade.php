@@ -10,6 +10,18 @@
     			</ol>
     		</nav>
     	@endsection
+      
+    	<div class="row" style= "float: right; margin-bottom: 10px;">
+    		<a href="/admin/akun/tambah-akun" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
+    			<i class="fas fa-plus"></i>
+    			Tambah data
+    		</a>
+    		<form action="/admin/akun" method="GET">
+    			<div class="search-box" style="width: 95%;">
+    				<input type="text" class="form-control" placeholder="Search..." name="kata">
+    			</div>
+    		</form>
+    	</div>
 
         @if(request()->query('kata'))
             @if($user->isEmpty())
@@ -26,18 +38,6 @@
                 </div>
             @endif
         @endif
-
-    	<div class="row" style= "float: right; margin-bottom: 10px;">
-    		<a href="/admin/akun/tambah-akun" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
-    			<i class="fas fa-plus"></i>
-    			Tambah data
-    		</a>
-    		<form action="/admin/akun">
-    			<div class="search-box" style="width: 95%;">
-    				<input type="text" class="form-control" name="cari" placeholder="Search..." name="kata">
-    			</div>
-    		</form>
-    	</div>
     	
     	<table class="table table-bordered">
     		<thead class="bg-warning">
@@ -51,14 +51,14 @@
     		<tbody>
                 @foreach($user as $value)
                     <tr style="text-align: center;">
-                        <th scope="row">{{ $value->iteration }}</th>
-                        <td>{{ $value->nama }}</td>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $value->name }}</td>
                         <td>{{ $value->email }}</td>
                         <td>
                             <a href="{{ url('/admin/akun/edit-akun/' . $value->id) }}">
                                 <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
                             </a>
-                            <a href="{{ url('/admin/akun/hapus-akun/' . $value->id) }}">
+                            <a href="{{ url('/admin/akun/hapus-akun/' . $value->id) }}" onclick="return confirm('Yakin ingin menghapus Akun?')">
                                 <i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i>
                             </a>
                         </td>

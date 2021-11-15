@@ -21,6 +21,8 @@ class HomeController extends Controller
     public function tambahPendataan(Request $request) {
     	$request->validate([
     		'nama' => ['required'],
+            'nik' => ['required'],
+            'tanggal_lahir' => ['required'],
     		'rt' => ['required'], 
     		'rw' => ['required'],
     		'sertifikat' => ['required', 'mimetypes:image/*']
@@ -28,6 +30,8 @@ class HomeController extends Controller
 
     	$pendataan = new Pendataan();
     	$pendataan->nama = $request->nama;
+        $pendataan->nik = $request->nik;
+        $pendataan->tanggal_lahir = $request->tanggal_lahir;
     	$pendataan->rt = $request->rt;
     	$pendataan->rw = $request->rw;
     	$pendataan->sertifikat = $request->sertifikat;

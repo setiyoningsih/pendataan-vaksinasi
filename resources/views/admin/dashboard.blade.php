@@ -15,7 +15,7 @@
     		<div class="row">
     			<!-- column -->
     			<div class="col-sm-12 col-lg-4">
-    				<div class="card card-hover" style="background-color: #FCBA03;">
+    				<div class="card card-hover" style="background-color: red;">
     					<div class="card-body" style="padding: 50px;">
     						<div class="d-flex">
     							<div class="mr-4">
@@ -50,7 +50,7 @@
             <div class="row">
                 <!-- column -->
                 <div class="col-sm-12 col-lg-4">
-                    <div class="card card-hover" style="background-color: #FCBA03;">
+                    <div class="card card-hover" style="background-color: green;">
                         <div class="card-body" style="padding: 50px;">
                             <div class="d-flex">
                                 <div class="mr-4">
@@ -66,7 +66,7 @@
                 </div>
                 <!-- column -->
                 <div class="col-sm-12 col-lg-4">
-                    <div class="card card-hover" style="background-color: #FCBA03;">
+                    <div class="card card-hover" style="background-color: purple;">
                         <div class="card-body" style="padding: 50px;">
                             <div class="d-flex">
                                 <div class="mr-4">
