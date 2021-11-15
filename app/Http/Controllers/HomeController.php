@@ -25,6 +25,7 @@ class HomeController extends Controller
             'tanggal_lahir' => ['required'],
     		'rt' => ['required'], 
     		'rw' => ['required'],
+
     		'sertifikat' => ['required', 'mimetypes:image/*']
     	]);
 
@@ -34,7 +35,9 @@ class HomeController extends Controller
         $pendataan->tanggal_lahir = $request->tanggal_lahir;
     	$pendataan->rt = $request->rt;
     	$pendataan->rw = $request->rw;
-    	$pendataan->sertifikat = $request->sertifikat;
+        if($pendataan->is_admin == false && $pendataan->is_valid == false) {
+            $pendataan->sertifikat = $request->sertifikat;
+        }
     	$pendataan->save();
 
     	return back()->with(['pesan' => 'Data berhasil dimasukkan']);
