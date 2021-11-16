@@ -19,7 +19,7 @@
     					<div class="card-body" style="padding: 50px;">
     						<div class="d-flex">
     							<div class="mr-4">
-    								<h4 class="mb-0">000</h4>
+    								<h4 class="mb-0">{{ $anak }}</h4>
     								<p style="color: white;">Jumlah Anak-anak Tervaksinasi</p>
     							</div>
     							<div class="chart ml-auto" style="width: 25%;">
@@ -35,7 +35,7 @@
     					<div class="card-body" style="padding: 50px;">
     						<div class="d-flex">
     							<div class="mr-4">
-    								<h4 class="mb-0">000</h4>
+    								<h4 class="mb-0">{{ $remaja }}</h4>
     								<p style="color: white;">Jumlah Remaja Tervaksinasi</p>
     							</div>
     							<div class="chart ml-auto" style="width: 25%;">
@@ -54,7 +54,7 @@
                         <div class="card-body" style="padding: 50px;">
                             <div class="d-flex">
                                 <div class="mr-4">
-                                    <h4 class="mb-0">000</h4>
+                                    <h4 class="mb-0">{{ $dewasa }}</h4>
                                     <p style="color: white;">Jumlah Dewasa Tervaksinasi</p>
                                 </div>
                                 <div class="chart ml-auto" style="width: 25%;">
@@ -70,7 +70,7 @@
                         <div class="card-body" style="padding: 50px;">
                             <div class="d-flex">
                                 <div class="mr-4">
-                                    <h4 class="mb-0">000</h4>
+                                    <h4 class="mb-0">{{ $lansia }}</h4>
                                     <p style="color: white;">Jumlah Lansia Tervaksinasi</p>
                                 </div>
                                 <div class="chart ml-auto" style="width: 25%;">
@@ -94,12 +94,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data as $value    )
+                        @foreach($data as $value)
                             <tr style="text-align: center;">
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $loop->rt }}</td>
-                                <td>{{ $loop->rw }}</td>
-                                <td></td>
+                                <td>{{ $data->rt }}</td>
+                                <td>{{ $data->rw }}</td>
+                                <td>{{ $jumlah }} </td>
                             </tr>
                         @endforeach
                     </tbody>
