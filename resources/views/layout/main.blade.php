@@ -100,9 +100,21 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="/admin/akun/profil" class="animsition-link dropdown-item wave-effect"><i class="feather icon-user"></i> Profil</a></li>
-                                    <li><a href="/admin/akun/edit-akun" class="animsition-link dropdown-item wave-effect"><i class="feather icon-settings"></i> Pengaturan</a></li>
-                                    <li><a href="/logout" class="animsition-link dropdown-item wave-effect"><i class="feather icon-log-in"></i> Logout</a></li>
+                                    <li>
+                                        <a href="/admin/akun/profil" class="animsition-link dropdown-item wave-effect">
+                                            <i class="feather icon-user"></i> Profil
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/admin/akun/edit/{id}" class="animsition-link dropdown-item wave-effect">
+                                            <i class="feather icon-settings"></i> Pengaturan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/logout" class="animsition-link dropdown-item wave-effect">
+                                            <i class="feather icon-log-in"></i> Logout
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="mobile-menu-toggle">

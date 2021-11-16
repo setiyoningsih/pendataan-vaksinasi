@@ -17,13 +17,13 @@
     	</div>
 
     	<div class="row" style= "float: right; margin-bottom: 10px;">
-    		<a href="" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
+    		<a href="/admin/data-vaksinasi/tambah" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
     			<i class="fas fa-plus"></i>
     			Tambah data
     		</a>
     		<form>
     			<div class="search-box" style="width: 95%;">
-    				<input type="text" class="form-control" name="cari" placeholder="Search...">
+    				<input type="text" class="form-control" name="kata" placeholder="Search...">
     			</div>
     		</form>
     	</div>
@@ -42,23 +42,24 @@
     			</tr>
     		</thead>
     		<tbody>
-                foreach($vaksinasi as $value)
-    			<tr style="text-align: center;">
-    				<th scope="row">{{ loop->iteration }}</th>
-    				<td>{{ $value->nama }}</td>
-    				<td>{{ $value->nik }}</td>
-    				<td>{{ $value->tanggal_lahir }}</td>
-    				<td>{{ $value->rt }}</td>
-                    <td>{{ $value->rw }}</td>
-                    <td>
-                        <a href="{{ url('/admin/akun/edit-akun/' . $value->id) }}">
-                            <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
-                        </a>
-                        <a href="{{ url('/admin/akun/hapus-akun/' . $value->id) }}" onclick="return confirm('Yakin ingin menghapus Akun?')">
-                            <i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i>
-                        </a>
-                    </td>
-    			</tr>
+                @foreach($vaksinasi as $value)
+                    <tr style="text-align: center;">
+                        <th scope="row">{{ loop->iteration }}</th>
+                        <td>{{ $value->nama }}</td>
+                        <td>{{ $value->nik }}</td>
+                        <td>{{ $value->tanggal_lahir }}</td>
+                        <td>{{ $value->rt }}</td>
+                        <td>{{ $value->rw }}</td>
+                        <td>
+                            <a href="{{ url('/admin/data-vaksinasi/edit/' . $value->id) }}">
+                                <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
+                            </a>
+                            <a href="{{ url('/admin/data-vaksinasi/hapus/' . $value->id) }}" onclick="return confirm('Yakin ingin menghapus Akun?')">
+                                <i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
     		</tbody>
     	</table>
 

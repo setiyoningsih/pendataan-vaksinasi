@@ -35,7 +35,7 @@
                 </div>
                 <center>
                     <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
-                    <a href="/admin/akun" class="btn btn-danger">Cancel</a>
+                    <a href="/admin/data-vaksinasi" class="btn btn-danger">Cancel</a>
                 </center>
         </form>
     @endsection

@@ -12,7 +12,7 @@
     	@endsection
       
     	<div class="row" style= "float: right; margin-bottom: 10px;">
-    		<a href="/admin/akun/tambah-akun" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
+    		<a href="/admin/akun/tambah" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
     			<i class="fas fa-plus"></i>
     			Tambah data
     		</a>
@@ -55,10 +55,10 @@
                         <td>{{ $value->name }}</td>
                         <td>{{ $value->email }}</td>
                         <td>
-                            <a href="{{ url('/admin/akun/edit-akun/' . $value->id) }}">
+                            <a href="{{ url('/admin/akun/edit/' . $value->id) }}">
                                 <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
                             </a>
-                            <a href="{{ url('/admin/akun/hapus-akun/' . $value->id) }}" onclick="return confirm('Yakin ingin menghapus Akun?')">
+                            <a href="{{ url('/admin/akun/hapus/' . $value->id) }}" onclick="return confirm('Yakin ingin menghapus Akun?')">
                                 <i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i>
                             </a>
                         </td>

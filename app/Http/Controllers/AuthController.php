@@ -7,13 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     public function index() {
-    	return view('login');
+
+    	return view('admin/login');
     }
 
-    public function login() {
+    public function login(Request $request) {
     	$request->validate([
     		'name' => 'required',
     		'password' => 'required'

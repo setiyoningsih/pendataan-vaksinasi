@@ -11,7 +11,7 @@
     		</nav>
     	@endsection
         
-    	<form method="POST" action="/admin/akun/tambah-akun" enctype="multipart/form-data">
+    	<form method="POST" action="/admin/akun/tambah" enctype="multipart/form-data">
             @csrf
                 <div class="form-group">
                     <label for="name">Nama</label>

@@ -34,7 +34,7 @@ class AkunController extends Controller
     	$user->password = $request->password;
     	$user->save();
 
-    	return redirect('/admin/akun');
+    	return redirect('/admin/akun')->with(['pesan' => 'Data berhasil ditambahkan']);;
     }
 
     public function tampilEditAkun($id) {
@@ -56,7 +56,7 @@ class AkunController extends Controller
     	$user->password = $request->password;
     	$user->save();
 
-    	return redirect('/admin/akun');
+    	return redirect('/admin/akun')->with(['pesan' => 'Data berhasil diedit']);;
     }
 
   
