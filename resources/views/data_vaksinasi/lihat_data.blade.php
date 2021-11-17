@@ -27,6 +27,22 @@
     			</div>
     		</form>
     	</div>
+
+        @if(request()->query('kata'))
+            @if($vaksinasi->isEmpty())
+                <div class="row">
+                    <div class="alert alert-danger" role="alert">
+                        Hasil tidak ditemukan
+                    </div>
+                </div>
+            @else
+                <div class="row">
+                    <div class="alert alert-info" role="alert">
+                        Hasil ditemukan
+                    </div>
+                </div>
+            @endif
+        @endif
     	
 
     	<table class="table table-bordered">
@@ -44,7 +60,7 @@
     		<tbody>
                 @foreach($vaksinasi as $value)
                     <tr style="text-align: center;">
-                        <th scope="row">{{ loop->iteration }}</th>
+                        <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $value->nama }}</td>
                         <td>{{ $value->nik }}</td>
                         <td>{{ $value->tanggal_lahir }}</td>

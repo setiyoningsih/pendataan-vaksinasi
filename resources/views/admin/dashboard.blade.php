@@ -83,28 +83,28 @@
             </div>
         </div>
 
-            <div class="table-responsive-sm">
-                <table class="table table-bordered">
-                    <thead class="bg-warning">
-                        <tr style="text-align: center;">
-                            <th scope="col">No</th>
-                            <th scope="col">RT</th>
-                            <th scope="col">RW</th>
-                            <th scope="col">Jumlah</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data as $value)
-                            <tr style="text-align: center;">
-                                <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $data->rt }}</td>
-                                <td>{{ $data->rw }}</td>
-                                <td>{{ $jumlah }} </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+        <div class="table-responsive-sm">
+            <table class="table table-bordered">
+                <thead class="bg-warning">
+                    <tr style="text-align: center;">
+                        <th scope="col">No</th>
+                        <th scope="col">RT</th>
+                        <th scope="col">RW</th>
+                        <th scope="col">Jumlah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($data as $value)
+                    <tr style="text-align: center;">
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $value->rt }}</td>
+                        <td>{{ $value->rw }}</td>
+                        <td>{{ $value->jumlah }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     	
 
 	@endsection

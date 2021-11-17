@@ -59,7 +59,6 @@ class AkunController extends Controller
     	return redirect('/admin/akun')->with(['pesan' => 'Data berhasil diedit']);;
     }
 
-  
     public function hapusAkun($id) {
     	$user = User::find($id);
     	if($user) {
@@ -67,5 +66,14 @@ class AkunController extends Controller
     	}
 
     	return back();
+    }
+
+    public function tampilProfilAkun($id) {
+        $user = User::find($id);
+        // if (Hash::needsRehash($hashed)) {
+        //     $hashed = Hash::make('plain-text');
+        // }
+
+        return view('akun/profil_akun', compact('user'));
     }
 }

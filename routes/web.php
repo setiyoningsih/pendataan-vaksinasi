@@ -35,6 +35,8 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 //data masuk
 Route::get('/admin/data-masuk', [DashboardController::class, 'dataMasuk']);
 
+Route::get('/admin/data-masuk/valid/{id}', [DashboardController::class, 'isValid']);
+
 //data vaksinasi
 Route::get('/admin/data-vaksinasi', [DataVaksinasiController::class, 'index']);
 

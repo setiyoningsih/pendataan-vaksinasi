@@ -4,39 +4,57 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use\App\Models\Pendataan;
-use Carbon\Carbon;
+use\App\Models\User;
+use Carbon\CarbonImmutable;
+use DB;
 
 class DashboardController extends Controller
 {
-    function index () {
-    	$data = Pendataan::all();
-    	$jumlah = Pendataan::where('rt', 'rw')->count();
+    public function index () {
+        $data = DB::table('pendataan')->select('rt', 'rw', DB::raw('count(*) as jumlah'))->groupBy('rw', 'rt')->get();
 
-    	$anakStart = Carbon::createFromFormat('Y-m-d', '2011-01-01');
-    	$anakEnd = Carbon::createFromFormat('Y-m-d', '2016-01-01');
-    	$anak = Pendataan::whereBetween('tanggal_lahir', [$anakStart, $anakEnd])->count();
+        $tanggal_sekarang = new CarbonImmutable();
 
-    	$remajaStart = Carbon::createFromFormat('Y-m-d', '2004-01-01');
-    	$remajaEnd = Carbon::createFromFormat('Y-m-d', '2009-01-01');
+        $anakStart = $tanggal_sekarang->subYears(10);
+        $anakEnd =  $tanggal_sekarang->subYears(5);
+        $anak = Pendataan::whereBetween('tanggal_lahir', [$anakStart, $anakEnd])->count();
+
+    	$remajaStart = $tanggal_sekarang->subYears(17);
+    	$remajaEnd = $tanggal_sekarang->subYears(12);
     	$remaja = Pendataan::whereBetween('tanggal_lahir', [$remajaStart, $remajaEnd])->count();
 
-		$dewasaStart = Carbon::createFromFormat('Y-m-d', '1976-01-01');
-    	$dewasaEnd = Carbon::createFromFormat('Y-m-d', '2003-01-01');
+		$dewasaStart = $tanggal_sekarang->subYears(45);
+    	$dewasaEnd = $tanggal_sekarang->subYears(18);
     	$dewasa = Pendataan::whereBetween('tanggal_lahir', [$dewasaStart, $dewasaEnd])->count(); 
 
-    	$lansiaStart = Carbon::createFromFormat('Y-m-d', '1975-01-01');
-    	$lansiaEnd = Carbon::createFromFormat('Y-m-d', '1956-01-01');
+    	$lansiaStart = $tanggal_sekarang->subYears(65);
+    	$lansiaEnd = $tanggal_sekarang->subYears(46);
     	$lansia = Pendataan::query()
-    			->whereYear('tanggal_lahir', '=', $lansiaStart)
-    			->whereYear('tanggal_lahir', '>=', $lansiaEnd)
+    			->whereYear('tanggal_lahir', '>=', $lansiaStart)
+    			->whereYear('tanggal_lahir', '=', $lansiaEnd)
     			->count();   	
 		
-    	return view('admin/dashboard', compact('data', 'jumlah', 'anak', 'remaja', 'dewasa', 'lansia'));
+    	return view('admin/dashboard', compact('data', 'anak', 'remaja', 'dewasa', 'lansia'));
     }
 
-    function dataMasuk() {
+    public function dataMasuk() {
     	$pendataan = Pendataan::all();
 
     	return view('admin/data_masuk', compact('pendataan'));
     }
+
+    // public function dataValid($id) {
+    //     $pendataan = Pendataan::find($id);
+
+    //     return view('admin/data_masuk', compact('pendataan'));
+    // }
+
+    public function isValid($id) {
+        $valid = Pendataan::find($id);
+        $valid->is_valid = true;
+        $valid->save();
+
+        return redirect('/admin/data-vaksinasi');
+    }
 }
+

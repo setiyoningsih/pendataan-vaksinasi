@@ -55,13 +55,13 @@
     			</tr>
     		</thead>
     		<tbody>
-                foreach($pendataan as $value)
+                @foreach($pendataan as $value)
                     <tr style="text-align: center;">
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $value->nama }}</td>
                         <td>{{ $value->nik }}</td>
                         <td>{{ $value->tanggal_lahir }}</td>
-                        <td>{{ $value->rt /}} {{ $value->rw }}</td>
+                        <td>{{ $value->rt }}/{{ $value->rw }}</td>
                         <td>
                             <div id="lightgallery">
                                 <a href="{{ Storage::url($value->sertifikat) }}">
@@ -70,11 +70,11 @@
                             </div>
                         </td>
                         <td>
-                            <a href="" data-toggle="modal">
-                                <i class="fas fa-check-circle fa-2x" data-toggle="tooltip" title="Terima"></i>
+                            <a href="/admin/data-masuk/valid/{{$value->id}}">
+                                <i class="fas fa-check-circle fa-2x" title="Terima"></i>
                             </a>
                             <a href="" data-toggle="modal">
-                                <i class="fas fa-times-circle fa-2x" data-toggle="tooltip" title="Tolak"></i>
+                                <i class="fas fa-times-circle fa-2x" title="Tolak"></i>
                             </a>            
                         </td>
                     </tr>

@@ -35,7 +35,7 @@
 						</div>
 						<div style="margin-top: 30px; margin-bottom: 20px;">
 							<input class="input-file" type="file" id="file" accept="image/*" name="sertifikat">
-							<div class="text-danger">*Sertifikat vaksinasi</div>
+							<div class="text-left text-danger">*Sertifikat vaksinasi</div>
 						</div>
 						<center>
 							<button type="submit" class="btn btn-primary" name="submit" value="terekam">Submit</button>

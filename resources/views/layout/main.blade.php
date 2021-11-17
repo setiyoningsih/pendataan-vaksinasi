@@ -139,25 +139,25 @@
             <ul id="sidebarCookie">
                 <!-- Menu -->
                 <li class="nav-item">
-                    <a class="nav-link wave-effect collapsed wave-effect"  data-toggle="collapse" href="{{ url('/admin/dashboard') }}">
+                    <a class="nav-link wave-effect collapsed wave-effect" href="{{ url('/admin/dashboard') }}">
                         <i class="feather icon-grid"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" data-toggle="collapse" href="/admin/data-masuk" aria-expanded="false" aria-controls="page-layouts">
+                    <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" href="/admin/data-masuk" aria-expanded="false" aria-controls="page-layouts">
                         <i class="feather icon-sidebar"></i>
                         <span class="menu-title">Data Masuk</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" data-toggle="collapse" href="/admin/data-vaksinasi" aria-expanded="false" aria-controls="page-elements">
+                    <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" href="/admin/data-vaksinasi" aria-expanded="false" aria-controls="page-elements">
                         <i class="feather icon-layout"></i>
                         <span class="menu-title">Data Vaksinasi</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" data-toggle="collapse" href="/admin/akun" aria-expanded="false" aria-controls="page-profilebox">
+                    <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" href="/admin/akun" aria-expanded="false" aria-controls="page-profilebox">
                         <i class="feather icon-users"></i>
                         <span class="menu-title">Akun</span>
                     </a>

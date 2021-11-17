@@ -21,7 +21,6 @@ class BuatTabelPendataan extends Migration
             $table->string('rt');
             $table->string('rw');
             $table->string('sertifikat');
-            $table->string('excel');
             $table->boolean('is_admin');
             $table->boolean('is_valid');
             $table->timestamps();
