@@ -34,7 +34,7 @@ class AkunController extends Controller
     	$user->password = $request->password;
     	$user->save();
 
-    	return redirect('/admin/akun')->with(['pesan' => 'Data berhasil ditambahkan']);;
+    	return redirect('/admin/akun')->with(['pesan' => 'Data berhasil ditambahkan']);
     }
 
     public function tampilEditAkun($id) {
@@ -56,7 +56,7 @@ class AkunController extends Controller
     	$user->password = $request->password;
     	$user->save();
 
-    	return redirect('/admin/akun')->with(['pesan' => 'Data berhasil diedit']);;
+    	return redirect('/admin/akun')->with(['pesan' => 'Data berhasil diedit']);
     }
 
     public function hapusAkun($id) {
@@ -68,11 +68,8 @@ class AkunController extends Controller
     	return back();
     }
 
-    public function tampilProfilAkun($id) {
-        $user = User::find($id);
-        // if (Hash::needsRehash($hashed)) {
-        //     $hashed = Hash::make('plain-text');
-        // }
+    public function tampilProfilAkun() {
+        $user = auth()->user();
 
         return view('akun/profil_akun', compact('user'));
     }

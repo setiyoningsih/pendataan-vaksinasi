@@ -22,9 +22,6 @@
     								<h4 class="mb-0">{{ $anak }}</h4>
     								<p style="color: white;">Jumlah Anak-anak Tervaksinasi</p>
     							</div>
-    							<div class="chart ml-auto" style="width: 25%;">
-    								<img src="/images/vaksin.jpg" alt="Corona Vaksin" />
-    							</div>
     						</div>
     					</div>
     				</div>
@@ -37,9 +34,6 @@
     							<div class="mr-4">
     								<h4 class="mb-0">{{ $remaja }}</h4>
     								<p style="color: white;">Jumlah Remaja Tervaksinasi</p>
-    							</div>
-    							<div class="chart ml-auto" style="width: 25%;">
-    								<img src="/images/not-vaksin.jpg" alt="Belum Corona Vaksin" />
     							</div>
     						</div>
     					</div>
@@ -57,9 +51,6 @@
                                     <h4 class="mb-0">{{ $dewasa }}</h4>
                                     <p style="color: white;">Jumlah Dewasa Tervaksinasi</p>
                                 </div>
-                                <div class="chart ml-auto" style="width: 25%;">
-                                    <img src="/images/vaksin.jpg" alt="Corona Vaksin" />
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -72,9 +63,6 @@
                                 <div class="mr-4">
                                     <h4 class="mb-0">{{ $lansia }}</h4>
                                     <p style="color: white;">Jumlah Lansia Tervaksinasi</p>
-                                </div>
-                                <div class="chart ml-auto" style="width: 25%;">
-                                    <img src="/images/not-vaksin.jpg" alt="Belum Corona Vaksin" />
                                 </div>
                             </div>
                         </div>

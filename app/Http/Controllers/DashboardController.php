@@ -8,6 +8,7 @@ use\App\Models\User;
 use Carbon\CarbonImmutable;
 use DB;
 
+
 class DashboardController extends Controller
 {
     public function index () {
@@ -20,7 +21,7 @@ class DashboardController extends Controller
         $anak = Pendataan::whereBetween('tanggal_lahir', [$anakStart, $anakEnd])->count();
 
     	$remajaStart = $tanggal_sekarang->subYears(17);
-    	$remajaEnd = $tanggal_sekarang->subYears(12);
+    	$remajaEnd = $tanggal_sekarang->subYears(11);
     	$remaja = Pendataan::whereBetween('tanggal_lahir', [$remajaStart, $remajaEnd])->count();
 
 		$dewasaStart = $tanggal_sekarang->subYears(45);
@@ -32,22 +33,18 @@ class DashboardController extends Controller
     	$lansia = Pendataan::query()
     			->whereYear('tanggal_lahir', '>=', $lansiaStart)
     			->whereYear('tanggal_lahir', '=', $lansiaEnd)
-    			->count();   	
+    			->count();   
+
+        $user = User::all();	
 		
-    	return view('admin/dashboard', compact('data', 'anak', 'remaja', 'dewasa', 'lansia'));
+    	return view('admin/dashboard', compact('data', 'anak', 'remaja', 'dewasa', 'lansia', 'user'));
     }
 
     public function dataMasuk() {
-    	$pendataan = Pendataan::all();
+    	$pendataan = Pendataan::where('is_valid', false)->get();
 
     	return view('admin/data_masuk', compact('pendataan'));
     }
-
-    // public function dataValid($id) {
-    //     $pendataan = Pendataan::find($id);
-
-    //     return view('admin/data_masuk', compact('pendataan'));
-    // }
 
     public function isValid($id) {
         $valid = Pendataan::find($id);

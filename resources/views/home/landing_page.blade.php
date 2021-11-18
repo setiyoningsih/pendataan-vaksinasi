@@ -2,32 +2,49 @@
 
 	@section ('content')
         
-            @if(request()->query('kata'))
-            <center>
-                @if($pendataan->isEmpty())
-                    <div class="row">
-                        <div class="alert alert-danger" role="alert">
-                            Hasil tidak ditemukan
-                        </div>
-                    </div>
-                @else
-                    <div class="row">
-                        <div class="alert alert-info" role="alert">
-                            Hasil ditemukan
-                        </div>
-                    </div>
-                @endif
-                </center>
-            @endif
-        
-
         <form>
             <center>
                 <div class="form-group">
-                    <input type="input" class="form-control" name="cari" placeholder="Masukkan Nama Anda..."  style="width: 50%;border-radius: 8px; margin-top: 5%; box-shadow: 5px 5px 8px">
+                    <input type="input" class="form-control" name="kata" placeholder="Masukkan Nama Anda..."  style="width: 50%;border-radius: 8px; margin-top: 5%; box-shadow: 5px 5px 8px">
                 </div>
             </center>
         </form>
+
+        @if(request()->query('kata'))
+            @if($pendataan->isEmpty())
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>    
+                    <strong>Hasil tidak ditemukan</strong>
+                </div>
+            @else
+                <div class="alert alert-info alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>    
+                    <strong>Hasil ditemukan</strong>   
+                </div>
+                <center>
+                    <table class="table table-sm table-warning" style="width: 30%;">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">RT</th>
+                                <th scope="col">RW</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pendataan as $value)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $value->nama }}</td>
+                                    <td>{{ $value->rt }}</td>
+                                    <td>{{ $value->rw }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </center>               
+            @endif
+        @endif
 
         <div class="container">
             <div class="row text-center" style="margin-top: 5%;">

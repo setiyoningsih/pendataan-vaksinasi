@@ -3,15 +3,16 @@
 	@section ('content')
         <!-- Template PhotoSwipe -->
         <script src="{{ asset('data_masuk/dist/js/lightgallery.min.js') }}"></script>
+        
         <!-- lightgallery plugins -->
-        <!-- <script src="{{ asset('data_masuk/js/lg-autoplay.min.js') }}"></script> -->
+        <script src="{{ asset('data_masuk/js/lg-autoplay.min.js') }}"></script>
         <script src="{{ asset('data_masuk/js/lg-fullscreen.min.js') }}"></script>
         <script src="{{ asset('data_masuk/js/lg-hash.min.js') }}"></script>
-        <!-- <script src="{{ asset('data_masuk/js/lg-pager.min.js') }}"></script> -->
+        <script src="{{ asset('data_masuk/js/lg-pager.min.js') }}"></script>
         <script src="{{ asset('data_masuk/js/lg-rotate.min.js') }}"></script>
-        <!-- <script src="{{ asset('data_masuk/js/lg-share.min.js') }}"></script> -->
+        <script src="{{ asset('data_masuk/js/lg-share.min.js') }}"></script>
         <script src="{{ asset('data_masuk/js/lg-thumbnail.min.js') }}"></script>
-        <!-- <script src="{{ asset('data_masuk/js/lg-video.min.js') }}"></script> -->
+        <script src="{{ asset('data_masuk/js/lg-video.min.js') }}"></script>
         <script src="{{ asset('data_masuk/js/lg-zoom.min.js') }}"></script>
 
         <style>
@@ -62,10 +63,10 @@
                         <td>{{ $value->nik }}</td>
                         <td>{{ $value->tanggal_lahir }}</td>
                         <td>{{ $value->rt }}/{{ $value->rw }}</td>
-                        <td>
+                        <td style="width: 30%;">
                             <div id="lightgallery">
                                 <a href="{{ Storage::url($value->sertifikat) }}">
-                                    <img src="{{ Storage::url($value->sertifikat) }}" style="width: 30%;">
+                                    <img src="{{ Storage::url($value->sertifikat) }}" style="width: 20%;">
                                 </a>
                             </div>
                         </td>
@@ -73,7 +74,7 @@
                             <a href="/admin/data-masuk/valid/{{$value->id}}">
                                 <i class="fas fa-check-circle fa-2x" title="Terima"></i>
                             </a>
-                            <a href="" data-toggle="modal">
+                            <a href="" data-toggle="modal" onclick="return confirm('Yakin ingin menghapus Data?')">
                                 <i class="fas fa-times-circle fa-2x" title="Tolak"></i>
                             </a>            
                         </td>

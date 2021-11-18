@@ -25,7 +25,7 @@ class AuthController extends Controller
     	if($login) {
     		return redirect('/admin/dashboard');
     	}else {
-    		return back()->withInput()->withErrors('Nama atau Password Anda Salah!');
+    		return back()->with('alert', 'Nama atau Password Anda Salah!');
     	}
     }
 

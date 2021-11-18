@@ -9,7 +9,12 @@
                             <form id="login-form" class="form" action="" method="post">
                                 <center>
                                     <img src="/images/logo-pati.png" alt="Logo" style="height: 110px; margin-bottom: 10px; ">
-                                    @csrf                              
+                                    @if(\Session::has('alert'))
+                                        <div class="alert-success">
+                                            <div>{{Session::get('alert')}}</div>
+                                        </div>
+                                    @endif
+                                    @csrf             
                                     <div class="form-group">
                                         <label for="name">Nama</label><br>
                                         <input type="text" name="name" class="form-control">

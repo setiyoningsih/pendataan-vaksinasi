@@ -45,8 +45,8 @@
 
 	@yield('content')
 
-	<footer style="float: left; font-weight: bolder; position: fixed; bottom: 0;">
-		<p>&copy;Desa Dadirejo. All Right Reserved</p>
+	<footer style="font-weight: bolder; position: fixed; bottom: 0;">
+		<p>&copy;Desa Dadirejo. All Right Reserved. Created by Setiyoningsih</p>
 	</footer>
 
 

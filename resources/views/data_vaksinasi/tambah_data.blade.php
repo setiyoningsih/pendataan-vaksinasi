@@ -2,7 +2,7 @@
 
 	@section ('content')
 		@section ('breadcrumb')
-			<h4 class="page-title">Akun</h4>
+			<h4 class="page-title">Data Vaksinasi</h4>
     		<nav aria-label="breadcrumb">
     			<ol class="breadcrumb"> 
                     <li class="breadcrumb-item"><a href="/admin/data-vaksinasi">Data Vaksinasi</a></li>
@@ -10,13 +10,6 @@
     			</ol>
     		</nav>
     	@endsection
-
-        @if ($message = Session::get('pesan'))
-            <div class="alert alert-success alert-block">
-                <button type="button" class="close" data-dismiss="alert">×</button>    
-                <strong>{{ $message }}</strong>
-            </div>
-        @endif
         
     	<form method="POST" action="/admin/data-vaksinasi/tambah" enctype="multipart/form-data">
             @csrf
@@ -27,6 +20,9 @@
                 <div class="form-group">
                     <label for="nik">NIK</label>
                     <input type="input" class="form-control" name="nik" required="required">
+                    @error('nik')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="tanggal_lahir">Tanggal Lahir</label>

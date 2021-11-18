@@ -9,7 +9,7 @@
    		@endif
 		<center>
 			<div class="container-blur">
-				<form style="width: 50%;" method="POST" enctype="multipart/form-data">
+				<form style="width: 50%; text-align: left;" method="POST" enctype="multipart/form-data">
 					@csrf
 						<div class="form-group">
 							<label>Nama</label>
@@ -18,6 +18,9 @@
 						<div class="form-group">
 							<label>NIK</label>
 							<input type="input" class="form-control" name="nik" required="required">
+							@error('nik')
+								<div class="alert alert-danger">{{ $message }}</div>
+							@enderror
 						</div>
 						<div class="form-group">
 							<label>Tanggal lahir</label>
@@ -27,10 +30,12 @@
 							<div class="col">
 								<label>RT</label>
 								<input type="text" class="form-control" name="rt" required="required">
+								<div class="text-left text-danger">*Isikan angka</div>
 							</div>
 							<div class="col">
 								<label>RW</label>
 								<input type="text" class="form-control" name="rw" required="required">
+								<div class="text-left text-danger">*Isikan angka</div>
 							</div>
 						</div>
 						<div style="margin-top: 30px; margin-bottom: 20px;">

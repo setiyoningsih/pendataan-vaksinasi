@@ -8,7 +8,7 @@ use\App\Models\Pendataan;
 class DataVaksinasiController extends Controller
 {
     public function index(Request $request) {
-    	$vaksinasi = Pendataan::all();
+    	$vaksinasi = Pendataan::where('is_valid', true)->get();
         $vaksinasi = Pendataan::where('nama', 'like', '%' . $request->kata . '%')
             ->orWhere('nik', 'like', '%' . $request->kata . '%')
             ->orWhere('tanggal_lahir', 'like', '%' . $request->kata . '%')
@@ -19,15 +19,14 @@ class DataVaksinasiController extends Controller
     }
 
     public function tampilTambahVaksinasi() {
-    	$vaksinasi = Pendataan::all();
     	
-    	return view('data_vaksinasi/tambah_data', compact('vaksinasi'));	
+    	return view('data_vaksinasi/tambah_data');	
     }
 
 	public function tambahVaksinasi(Request $request) {
 		$request->validate([
 			'nama' => ['required'],
-			'nik' => ['required'],
+			'nik' => ['required', 'digits:16'],
 			'tanggal_lahir' => ['required'],
 			'rt' => ['required'],
 			'rw' => ['required'],
@@ -59,7 +58,6 @@ class DataVaksinasiController extends Controller
             'tanggal_lahir' => ['required'],
             'rt' => ['required'],
             'rw' => ['required'],
-            'sertifikat' => ['required'],
         ]);
 
         $vaksinasi = Pendataan::find($id);
@@ -68,9 +66,8 @@ class DataVaksinasiController extends Controller
         $vaksinasi->tanggal_lahir = $request->tanggal_lahir;
         $vaksinasi->rt = $request->rt;
         $vaksinasi->rw = $request->rw;
-        if($vaksinasi->is_admin == true && $vaksinasi->is_valid == true) {
-            $vaksinasi->sertifikat = $request->sertifikat;
-        }
+        $vaksinasi->is_admin = true;
+        $vaksinasi->is_valid = true;
         $vaksinasi->save();
 
         return redirect('/admin/data-vaksinasi')->with(['pesan' => 'Data berhasil diedit']);

@@ -20,7 +20,7 @@ class BuatTabelPendataan extends Migration
             $table->date('tanggal_lahir');
             $table->string('rt');
             $table->string('rw');
-            $table->string('sertifikat');
+            $table->string('sertifikat')->nullable();
             $table->boolean('is_admin');
             $table->boolean('is_valid');
             $table->timestamps();

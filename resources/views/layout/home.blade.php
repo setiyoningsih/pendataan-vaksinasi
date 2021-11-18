@@ -26,6 +26,9 @@
 				padding-left: 500px;
 			}
 		}
+		.nav-link.active {
+			color: black;
+		}
 	</style>
 </head>
 <body>
@@ -39,18 +42,19 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarHome">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="nav-home" style="font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px;">
-				<li class="nav-item active">
-					<a class="nav-link" href="/">Home 
-						<span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link @if (request()->is('/')) active @endif" href="/" >Home 
+						<!-- <span class="sr-only">(current)</span> -->
+					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/pendataan-vaksinasi">Pendataan Vaksinasi</a>
+					<a class="nav-link @if (request()->is('pendataan-vaksinasi')) active @endif" href="pendataan-vaksinasi" >Pendataan Vaksinasi</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/tentang-vaksin">Tentang Vaksin</a>
+					<a class="nav-link @if (request()->is('tentang-vaksin')) active @endif" href="tentang-vaksin" >Tentang Vaksin</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/petunjuk">Petunjuk</a>
+					<a class="nav-link @if (request()->is('petunjuk')) active @endif" href="/petunjuk" >Petunjuk</a>
 				</li>
 			</ul>
 		</div>
@@ -64,8 +68,8 @@
 
 	@yield('content')
 
-	<footer style="float: left; font-weight: bolder; position: fixed; bottom: 0;">
-		<p>&copy;Desa Dadirejo. All Right Reserved</p>
+	<footer style="font-weight: bolder; position: absolute; margin-top: 20px; color: black">
+		<p>&copy;Desa Dadirejo. All Right Reserved. Develop and Create by Setiyoningsih.</p>
 	</footer>
 
 

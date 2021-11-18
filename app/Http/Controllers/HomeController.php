@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pendataan;
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,7 @@ class HomeController extends Controller
         $anak = Pendataan::whereBetween('tanggal_lahir', [$anakStart, $anakEnd])->count();
 
         $remajaStart = $tanggal_sekarang->subYears(17);
-        $remajaEnd = $tanggal_sekarang->subYears(12);
+        $remajaEnd = $tanggal_sekarang->subYears(11);
         $remaja = Pendataan::whereBetween('tanggal_lahir', [$remajaStart, $remajaEnd])->count();
 
         $dewasaStart = $tanggal_sekarang->subYears(45);
@@ -44,11 +45,10 @@ class HomeController extends Controller
     public function tambahPendataan(Request $request) {
     	$request->validate([
     		'nama' => ['required'],
-            'nik' => ['required'],
+            'nik' => ['required', 'digits:16'],
             'tanggal_lahir' => ['required'],
     		'rt' => ['required'], 
     		'rw' => ['required'],
-
     		'sertifikat' => ['required', 'mimetypes:image/*']
     	]);
 
@@ -60,7 +60,7 @@ class HomeController extends Controller
     	$pendataan->rw = $request->rw;
         $pendataan->is_admin = false;
         $pendataan->is_valid = false;
-        $pendataan->sertifikat = $request->sertifikat;  //tambahi store
+        $pendataan->sertifikat = $request->sertifikat->store('public/sertifikat');
     	$pendataan->save();
 
     	return back()->with(['pesan' => 'Data berhasil dimasukkan']);

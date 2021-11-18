@@ -6,16 +6,19 @@
 			<h4 class="page-title">Data Vaksinasi</h4>
     		<nav aria-label="breadcrumb">
     			<ol class="breadcrumb">
-    				<li class="breadcrumb-item"><a href="/">Tabel</a></li>                    
+    				<li class="breadcrumb-item"><a href="/admin/data-vaksinasi">Tabel</a></li>                    
     				<li class="breadcrumb-item active" aria-current="page">Data Vaksinasi</li>
     			</ol>
     		</nav>
     	@endsection
 
-    	<div class="float-left" style="margin-bottom: 10px;">
-    		<input class="input-file" type="file" id="file" accept="excel/*" name="excel">
-    	</div>
-
+        @if ($message = Session::get('pesan'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+        
     	<div class="row" style= "float: right; margin-bottom: 10px;">
     		<a href="/admin/data-vaksinasi/tambah" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
     			<i class="fas fa-plus"></i>

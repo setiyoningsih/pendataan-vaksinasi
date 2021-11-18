@@ -5,11 +5,18 @@
 			<h4 class="page-title">Akun</h4>
     		<nav aria-label="breadcrumb">
     			<ol class="breadcrumb">
-    				<li class="breadcrumb-item"><a href="#">Tabel</a></li>                    
+    				<li class="breadcrumb-item"><a href="/admin/akun">Tabel</a></li>                    
     				<li class="breadcrumb-item active" aria-current="page">Akun</li>
     			</ol>
     		</nav>
     	@endsection
+
+        @if ($message = Session::get('pesan'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
       
     	<div class="row" style= "float: right; margin-bottom: 10px;">
     		<a href="/admin/akun/tambah" class="btn btn-success"  style="width: 37%; margin-right: 5px; line-height: 25px;">
